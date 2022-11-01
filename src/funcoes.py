@@ -159,6 +159,3 @@ def verifica_se_ganhou(
     :return: booleano informando se o jogador ganhou o jogo
     """
     pass
-
-
-main()
