@@ -1,16 +1,7 @@
-import random
-import typing
-import time
-from funcoes import *
-#from IPython.display import clear_output
+from forca import Forca
 
-for index in range(0, 2):
-    main(numero_erros, numero_acertos)
-    
+obj_forca = Forca()
 
-'''
-- Colocar letras acertadas no lugar dos respectivos pontilhados
-- Função que verifica se o usuário ganhou ou perdeu
-- Estatisticas de acertos e erros
-- Colocar coloração
-'''
+palavras = obj_forca.lerArquivo()
+
+palavra_secreta = obj_forca.sortearPalavra(palavras)
