@@ -184,11 +184,14 @@ class Forca:
     def getErros(self):
       return self.erros
     
+    
     def setErros(self, erros):
       self.erros += erros
     
+   
     def getPalavraAtual(self):
       return self.palavraAtual
+    
     
     def setPalavraAtual(self, letra):
       letra = str(letra)
