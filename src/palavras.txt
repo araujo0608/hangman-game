@@ -5,3 +5,8 @@ pera
 uva
 morango
 kiwi
+ameixa
+melao
+melancia
+maracuja
+macadamia

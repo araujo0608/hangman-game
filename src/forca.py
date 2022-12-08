@@ -8,6 +8,10 @@ class Forca:
     def __init__(self, erros):
       self.erros = erros
       self.palavraAtual = ''
+      self.situacao = ''
+      self.palavraD2 = list()
+      self.palpitesFeitos = list()
+
 
       self.FORCAIMG = [
     """
@@ -68,9 +72,6 @@ class Forca:
     =========""",
 ]
     
-      self.palavraD2 = list()
-      self.palpitesFeitos = list()
-      
     
     @staticmethod #função que lê o arquivo palavras.txt e retorna a lista de palavras
     def lerArquivo():
@@ -172,21 +173,29 @@ class Forca:
       return novo_palpite
       
     def terminouPartida(self, palavra_secreta): #Função que verifica se o jogo acabou
-      if palavra_secreta == self.getPalavraAtual() or self.getErros() == 7:
+      if palavra_secreta == self.getPalavraAtual():
+        self.getSituacao('ganhou')
+        return True
+      elif self.getErros() == 7:
+        self.setSituacao('perdeu')
         return True
       else:
         return False
       
-     
       
     # Getter e Setters
     
     def getErros(self):
       return self.erros
     
-    
     def setErros(self, erros):
       self.erros += erros
+      
+    def getSituacao(self):
+      return self.situacao
+    
+    def setSituacao(self, situacao):
+      self.situacao = situacao
     
    
     def getPalavraAtual(self):
