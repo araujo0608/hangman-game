@@ -1,51 +1,54 @@
 from forca import Forca
 from time import sleep
-
+from termcolor import colored
 
 jogar = True
 
 while jogar:
+    print('\n \n')
     while True:
         obj_forca = Forca(0)
-        palavras = obj_forca.lerArquivo() #lendo arquivo das palavras
-        palavra_secreta = obj_forca.sortearPalavra(palavras) #sorteando a palavra secreta
-
-        obj_forca.apresentacaoInicial() #apresentando inicio do jogo
-
-        obj_forca.criarMatrizD2(palavra_secreta) #criando relação palavra secreta com pontilhados
+        palavras = obj_forca.lerArquivo()  # lendo arquivo das palavras
+        palavra_secreta = obj_forca.sortearPalavra(palavras)  # sorteando a palavra secreta
+        obj_forca.apresentacaoInicial()  # apresentando inicio do jogo
+        obj_forca.criarMatrizD2(palavra_secreta)  # criando relação palavra secreta com pontilhados
 
         acabou = False
 
         while acabou == False:
-            obj_forca.apresentarForca()
-            palpite = obj_forca.recebePalpite()
+            obj_forca.apresentarForca()  # Mostrando desenho da forca
+            palpite = obj_forca.recebePalpite()  # Recebendo palpite do usuário
             if palpite in palavra_secreta:
-                print('ACERTOU! A PALAVRA SECRETA TEM A LETRA {}'.format(palpite.upper()))
+                let = colored(f' {palpite.upper()}', 'green', attrs=['bold'])
+                print('ACERTOU! A PALAVRA SECRETA TEM A LETRA ' + str(let))
                 sleep(3)
                 obj_forca.atualizarMatrizD2(palpite)
-                obj_forca.setPalavraAtual(palpite)
+                obj_forca.setPalavraAtual()
             else:
-                print('ERROU! A PALAVRA SECRETA NÃO TEM ESSA LETRA')
+                msg = colored('ERROU! A PALAVRA SECRETA NÃO TEM ESSA LETRA', 'red', attrs=['bold'])
+                print(msg)
                 obj_forca.setErros(1)
                 sleep(3)
-            
-            print(obj_forca.getPalavraAtual())
-            acabou = obj_forca.terminouPartida(palavra_secreta)
-        
-        situacao = obj_forca.getSituacao()
+
+            acabou = obj_forca.terminouPartida(palavra_secreta) # Verificando se o jogo acabou
+
+        situacao = obj_forca.getSituacao() # Verificando se o usuário perdeu ou venceu
+
         if situacao == 'ganhou':
             print('--' * 20)
-            print('Parabéns, você venceu! A palavra correta é {}'.format(palavra_secreta))
-            print('Você chutou essas letras {}'.format(obj_forca.palpitesFeitos))
+            print(colored(f'Parabéns, você venceu! A palavra correta é {str(palavra_secreta.title())}', 'green', attrs=['bold']))
+            print(colored(f'Você chutou essas letras {obj_forca.palpitesFeitos}', 'green', attrs=['bold']))
             print('--' * 20)
+            sleep(3)
+            break
         else:
             print('--' * 20)
-            print('Ops! Você perdeu! A palavra correta era {}'.format(palavra_secreta))
-            print('Você chutou essas letras {}'.format(obj_forca.palpitesFeitos))
-            print('Mais sorte na próxima vez!')
+            print(colored(f'Ops! Você perdeu! A palavra correta era {str(palavra_secreta.title())}', 'red', attrs=['bold']))
+            print(colored(f'Você chutou essas letras {obj_forca.palpitesFeitos}', 'red', attrs=['bold']))
+            print(colored('Mais sorte na próxima vez!', 'blue', attrs=['bold']))
             print('--' * 20)
-        
-    jogar_novamente = str(input('\nDeseja jogar novamente? [S/N]: ')).strip().upper()[0]
+            sleep(2)
+            break
+    msg = colored('jogar novamente? [S/N]: ', 'yellow', attrs=['bold'])
+    jogar_novamente = str(input(msg)).strip()[0].upper()
     jogar = False if jogar_novamente == 'N' else True
-
-# Função de vencer não pegou, após chutar todas as letras corretamentea
