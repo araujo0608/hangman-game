@@ -1,6 +1,6 @@
 # **JOGO DA FORCA**
 
-Um simples jogo da forca escrito em python3 e terminal colorido
+Um simples jogo da forca em terminal colorido e escrito em python3
 
 ## SE QUISER FAZER POR CONTA PRÓPRIA. ESSAS SÃO AS REGRAS GERAIS
 
@@ -40,9 +40,15 @@ Um simples jogo da forca escrito em python3 e terminal colorido
 4. Entre no diretório `src` e execute o comando: `python3 game.py`
 
 Inicio do jogo
+
+<br>
+
 ![game](/fotos/apresentacao.png)
 
 Jogando
+
+<br>
+
 ![jogando](/fotos/jogando.png)
 
 
