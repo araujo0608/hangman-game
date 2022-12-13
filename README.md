@@ -18,7 +18,6 @@ Um simples jogo da forca escrito em python3 e terminal colorido
 
 ## REQUISITOS
 
----
 
 * `python3`
 * módulo `termcolor` para colorir terminal
@@ -29,12 +28,39 @@ Um simples jogo da forca escrito em python3 e terminal colorido
 
 ## COMO EXECUTAR
 
----
 
 1. Clone o repositório
-2. Adicione as palavras que deseja usar no arquivo `palavras.txt` sem acento, sem espaços, sem caracteres especiais e apenas um por linha
+2. Adicione as palavras que deseja usar no arquivo `palavras.txt` sem acento, sem espaços, sem caracteres especiais e apenas uma palavra por linha. Dessa forma:
 
 ![palavras](/fotos/palavras.png)
+
+
+3. Instale o Python3 e baixe o módulo `termcolor` 
+
+4. Entre no diretório `src` e execute o comando: `python3 game.py`
+
+Inicio do jogo
+![game](/fotos/apresentacao.png)
+
+Jogando
+![jogando](/fotos/jogando.png)
+
+
+<br>
+
+
+## PyHelp com Docstrings
+
+Se por ventura encontrar dificuldades de entender os métodos usados no jogo. Você pode usar o comando `help()` para ajuda-lo, pois todas as funções foram comentadas com `dosctrings` para facilitar o entendimento
+
+Use a sintaxe `help(Forca.<nome do método>)`
+![comando-help](/fotos/help.png)
+
+Saida no terminal
+![docs](/fotos/docstring.png)
+
+<br>
+<br>
 
 ## Recomendação de boneco em ASCII Art
 
@@ -105,5 +131,4 @@ FORCAIMG = [
     =========""",
 ]
 
-
-~~
+~~~

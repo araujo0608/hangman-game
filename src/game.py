@@ -4,6 +4,7 @@ from termcolor import colored
 
 jogar = True
 
+
 while jogar:
     print('\n \n')
     while True:
